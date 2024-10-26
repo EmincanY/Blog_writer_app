@@ -2,10 +2,9 @@ import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from openai import OpenAI
-import os
 
-# Ortam değişkenlerinden API anahtarını al
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# Streamlit Secrets'ten API anahtarını al
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 client = OpenAI(api_key=openai_api_key)
 
 # Şirket bilgisi (tek seferlik yükleme için)
